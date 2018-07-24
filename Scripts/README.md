@@ -1,4 +1,4 @@
-# Installation guide for running the IPS VPS script
+# Installation guide for running the AQX VPS script
 # Step 1
   * This will download the auto install script to your VPS.
 ```    
