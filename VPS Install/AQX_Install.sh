@@ -36,8 +36,7 @@ echo Please input the RPC Username.
 read RPCUSER
 echo Please input the RPC Password.
 read RPCPASSWORD
-echo Please input the VPS IP address.
-read VPSIP
+VPSIP=NODEIP=$(curl -s4 icanhazip.com)
 echo Please input the private key.
 read GENKEY
 
