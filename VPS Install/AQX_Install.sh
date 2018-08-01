@@ -91,7 +91,7 @@ addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
 EOF
-rm AQX-Install.sh
+rm AQX_Install.sh
 
 echo AquilaX configuration file created successfully. 
 echo Please start your new AquilaX masternode by running ./Aquilad -daemon
@@ -143,7 +143,7 @@ addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
 EOF
-rm AQX-Install.sh
+rm AQX_Install.sh
 echo AquilaX configuration file has been updated successfully.
 echo You can start your new AquilaX masternode manually by running ./Aquilad -daemon
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
