@@ -54,7 +54,7 @@ tar xvf aqx-linux.tar.gz
 chmod 775 ./Aquilad
 chmod 775 ./Aquila-cli
 echo AquilaX install complete. 
-
+rm aqx-linux.tar.gz
 echo Now ready to setup AquilaX configuration file.
 
 
@@ -91,6 +91,7 @@ addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
 EOF
+rm AQX-Install.sh
 
 echo AquilaX configuration file created successfully. 
 echo Please start your new AquilaX masternode by running ./Aquilad -daemon
@@ -103,6 +104,17 @@ RPCPASSWORD=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head
 VPSIP=$(curl -s4 icanhazip.com)
 echo Please input your private key.
 read GENKEY
+rm aqx-linux.tar.gz
+rm Aquilad
+rm Aquila-cli
+wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/aqx-linux.tar.gz
+echo Download complete.
+echo Installing AquilaX.
+tar xvf aqx-linux.tar.gz
+chmod 775 ./Aquilad
+chmod 775 ./Aquila-cli
+echo AquilaX install complete. 
+rm aqx-linux.tar.gz
 
 mkdir -p /root/.Aquila && touch /root/.Aquila/Aquila.conf
 
@@ -131,7 +143,7 @@ addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
 EOF
-
+rm AQX-Install.sh
 echo AquilaX configuration file has been updated successfully.
 echo You can start your new AquilaX masternode manually by running ./Aquilad -daemon
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
