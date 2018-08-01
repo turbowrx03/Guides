@@ -121,7 +121,7 @@ externalip=$VPSIP
 masternodeprivkey=$GENKEY
 EOF
 
-./Aquilacli -getinfo
+./Aquilacli stop
 clear
 echo AquilaX configuration file created successfully. 
 echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
@@ -172,7 +172,7 @@ EOF
 rm AQX_Install.sh
 ./Aquilad -daemon
 GENKEY=$(./Aquila-cli masternode genkey)
-./Aquila-cli -stop
+./Aquila-cli stop
 
 cat << EOF >> /root/.Aquila/Aquila.conf
 logtimestamps=1
