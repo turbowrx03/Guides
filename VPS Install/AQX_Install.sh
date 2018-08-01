@@ -104,7 +104,6 @@ RPCPASSWORD=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head
 VPSIP=$(curl -s4 icanhazip.com)
 echo Please input your private key.
 read GENKEY
-rm aqx-linux.tar.gz
 rm Aquilad
 rm Aquila-cli
 wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/aqx-linux.tar.gz
