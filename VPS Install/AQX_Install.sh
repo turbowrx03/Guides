@@ -86,6 +86,7 @@ EOF
 
 rm AQX_Install.sh
 ./Aquilad -daemon
+sleep 30
 GENKEY=./Aquila-cli masternode genkey
 ./Aquila-cli -stop
 
