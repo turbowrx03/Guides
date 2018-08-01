@@ -87,7 +87,7 @@ EOF
 rm AQX_Install.sh
 ./Aquilad -daemon
 sleep 30
-GENKEY=./Aquila-cli masternode genkey
+GENKEY=$(./Aquila-cli masternode genkey)
 ./Aquila-cli -stop
 
 cat > /root/.Aquila/Aquila.conf
@@ -148,7 +148,7 @@ EOF
 
 rm AQX_Install.sh
 ./Aquilad -daemon
-GENKEY=./Aquila-cli masternode genkey
+GENKEY=$(./Aquila-cli masternode genkey)
 ./Aquila-cli -stop
 
 cat > /root/.Aquila/Aquila.conf
