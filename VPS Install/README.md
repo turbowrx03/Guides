@@ -14,9 +14,5 @@ chmod u+x AQX_Install.sh
 ```
 
 # Step 3
-  * Start Aquila
-```
-./Aquilad -daemon
-
-```
-  * If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
+  * Copy your Private Key
+  * You will have your new private key displayed on the screen. Please copy that so you can setup your wallet. 
