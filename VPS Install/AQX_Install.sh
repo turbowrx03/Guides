@@ -57,8 +57,8 @@ echo AquilaX install complete.
 rm aqx-linux.tar.gz
 echo Now ready to setup AquilaX configuration file.
 
-RPCUSER=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-RPCPASSWORD=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+RPCUSER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+RPCPASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 VPSIP=$(curl -s4 icanhazip.com)
 
 mkdir -p /root/.Aquila && touch /root/.Aquila/Aquila.conf
@@ -110,8 +110,8 @@ echo Please use the following Private Key when setting up your wallet: ${RED}$GE
 rm Aquilad
 rm Aquila-cli
 rm /root/.Aquila/Aquila.conf
-RPCUSER=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-RPCPASSWORD=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+RPCUSER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+RPCPASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 VPSIP=$(curl -s4 icanhazip.com)
 
 wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/aqx-linux.tar.gz
@@ -125,7 +125,7 @@ rm aqx-linux.tar.gz
 
 mkdir -p /root/.Aquila && touch /root/.Aquila/Aquila.conf
 
-cat > /root/.Aquila/Aquila.conf << EOF
+cat << EOF > /root/.Aquila/Aquila.conf
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
 rpcallowip=127.0.0.1
@@ -151,13 +151,13 @@ rm AQX_Install.sh
 GENKEY=$(./Aquila-cli masternode genkey)
 ./Aquila-cli -stop
 
-cat > /root/.Aquila/Aquila.conf
+cat << EOF >> /root/.Aquila/Aquila.conf
 logtimestamps=1
 maxconnections=256
 masternode=1
 externalip=$VPSIP
 masternodeprivkey=$GENKEY
-^D
+EOF
 
 ./Aquilad -daemon
 
