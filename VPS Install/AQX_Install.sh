@@ -127,7 +127,7 @@ echo AquilaX configuration file created successfully.
 echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
 echo If you still have further issues please reach out to support in our Discord channel. 
-echo Please use the following Private Key when setting up your wallet: ${RED}$GENKEY${NC}
+echo Please use the following Private Key when setting up your wallet: $GENKEY
             ;;
         2)
 rm Aquilad
@@ -190,7 +190,7 @@ echo AquilaX configuration file created successfully.
 echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
 echo If you still have further issues please reach out to support in our Discord channel. 
-echo Please use the following Private Key when setting up your wallet: ${RED}$GENKEY${NC}
+echo Please use the following Private Key when setting up your wallet: $GENKEY
             ;;
         3)
             ./Aquilad -daemon
