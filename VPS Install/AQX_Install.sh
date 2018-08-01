@@ -63,7 +63,7 @@ VPSIP=$(curl -s4 icanhazip.com)
 
 mkdir -p /root/.Aquila && touch /root/.Aquila/Aquila.conf
 
-cat > /root/.Aquila/Aquila.conf << EOF
+cat > /root/.Aquila/Aquila.conf
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
 rpcallowip=127.0.0.1
@@ -82,7 +82,7 @@ addnode=104.207.155.156:45454
 addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
-EOF
+^D
 
 rm AQX_Install.sh
 ./Aquilad -daemon
