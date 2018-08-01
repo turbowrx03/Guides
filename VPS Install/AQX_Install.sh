@@ -90,13 +90,14 @@ sleep 30
 GENKEY=./Aquila-cli masternode genkey
 ./Aquila-cli -stop
 
-cat << EOF > /root/.Aquila/Aquila.conf
+cat > /root/.Aquila/Aquila.conf
 logtimestamps=1
 maxconnections=256
 masternode=1
 externalip=$VPSIP
 masternodeprivkey=$GENKEY
-EOF
+^D
+
 ./Aquilad -daemon
 
 echo AquilaX configuration file created successfully. 
@@ -150,13 +151,14 @@ rm AQX_Install.sh
 GENKEY=./Aquila-cli masternode genkey
 ./Aquila-cli -stop
 
-cat << EOF > /root/.Aquila/Aquila.conf
+cat > /root/.Aquila/Aquila.conf
 logtimestamps=1
 maxconnections=256
 masternode=1
 externalip=$VPSIP
 masternodeprivkey=$GENKEY
-EOF
+^D
+
 ./Aquilad -daemon
 
 rm AQX_Install.sh
