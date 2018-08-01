@@ -90,7 +90,7 @@ sleep 30
 GENKEY=./Aquila-cli masternode genkey
 ./Aquila-cli -stop
 
-cat > /root/.Aquila/Aquila.conf << EOF
+cat << EOF > /root/.Aquila/Aquila.conf
 logtimestamps=1
 maxconnections=256
 masternode=1
@@ -150,7 +150,7 @@ rm AQX_Install.sh
 GENKEY=./Aquila-cli masternode genkey
 ./Aquila-cli -stop
 
-cat > /root/.Aquila/Aquila.conf << EOF
+cat << EOF > /root/.Aquila/Aquila.conf
 logtimestamps=1
 maxconnections=256
 masternode=1
