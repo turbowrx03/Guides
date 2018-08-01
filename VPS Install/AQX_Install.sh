@@ -113,7 +113,7 @@ externalip=$VPSIP
 masternodeprivkey=$GENKEY
 EOF
 
-./Aquilad -daemon
+./Aquilacli -getinfo
 clear
 echo AquilaX configuration file created successfully. 
 echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
@@ -174,7 +174,7 @@ externalip=$VPSIP
 masternodeprivkey=$GENKEY
 EOF
 
-./Aquilad -daemon
+./Aquilad -getinfo
 
 rm AQX_Install.sh
 clear
