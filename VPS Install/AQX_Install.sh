@@ -107,7 +107,7 @@ addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
 EOF
-
+clear
 rm AQX_Install.sh
 ./Aquilad -daemon
 sleep 30
@@ -121,10 +121,11 @@ externalip=$VPSIP
 masternodeprivkey=$GENKEY
 EOF
 
-./Aquilacli stop
+./Aquila-cli stop
+./Aquilad -daemon
 clear
 echo AquilaX configuration file created successfully. 
-echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
+echo Aquila Server Started Successfully using the command ./Aquilad -daemon
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
 echo If you still have further issues please reach out to support in our Discord channel. 
 echo Please use the following Private Key when setting up your wallet: $GENKEY
@@ -171,6 +172,7 @@ EOF
 
 rm AQX_Install.sh
 ./Aquilad -daemon
+sleep 30
 GENKEY=$(./Aquila-cli masternode genkey)
 ./Aquila-cli stop
 
@@ -181,13 +183,13 @@ masternode=1
 externalip=$VPSIP
 masternodeprivkey=$GENKEY
 EOF
-
-./Aquilad -getinfo
+clear
+./Aquilad -daemon
 
 rm AQX_Install.sh
 clear
 echo AquilaX configuration file created successfully. 
-echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
+echo Aquila Server Started Successfully using the command ./Aquilad -daemon
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
 echo If you still have further issues please reach out to support in our Discord channel. 
 echo Please use the following Private Key when setting up your wallet: $GENKEY
