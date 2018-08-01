@@ -57,12 +57,9 @@ echo AquilaX install complete.
 rm aqx-linux.tar.gz
 echo Now ready to setup AquilaX configuration file.
 
-
 RPCUSER=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 RPCPASSWORD=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 VPSIP=$(curl -s4 icanhazip.com)
-echo Please input your private key.
-read GENKEY
 
 mkdir -p /root/.Aquila && touch /root/.Aquila/Aquila.conf
 
@@ -77,11 +74,6 @@ staking=1
 rpcallowip=127.0.0.1
 rpcport=45455
 port=45454
-logtimestamps=1
-maxconnections=256
-masternode=1
-externalip=$VPSIP
-masternodeprivkey=$GENKEY
 addnode=139.99.195.25:45454
 addnode=139.99.198.86:45454
 addnode=139.99.194.139:45454
@@ -91,21 +83,35 @@ addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
 EOF
+
 rm AQX_Install.sh
+./Aquilad -daemon
+GENKEY=./Aquila-cli masternode genkey
+./Aquila-cli -stop
+
+cat > /root/.Aquila/Aquila.conf << EOF
+logtimestamps=1
+maxconnections=256
+masternode=1
+externalip=$VPSIP
+masternodeprivkey=$GENKEY
+EOF
+./Aquilad -daemon
 
 echo AquilaX configuration file created successfully. 
-echo Please start your new AquilaX masternode by running ./Aquilad -daemon
+echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
 echo If you still have further issues please reach out to support in our Discord channel. 
+echo Please use the following Private Key when setting up your wallet: ${RED}$GENKEY${NC}
             ;;
         2)
-            RPCUSER=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-RPCPASSWORD=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-VPSIP=$(curl -s4 icanhazip.com)
-echo Please input your private key.
-read GENKEY
 rm Aquilad
 rm Aquila-cli
+rm /root/.Aquila/Aquila.conf
+RPCUSER=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+RPCPASSWORD=NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+VPSIP=$(curl -s4 icanhazip.com)
+
 wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/aqx-linux.tar.gz
 echo Download complete.
 echo Installing AquilaX.
@@ -128,11 +134,6 @@ staking=1
 rpcallowip=127.0.0.1
 rpcport=45455
 port=45454
-logtimestamps=1
-maxconnections=256
-masternode=1
-externalip=$VPSIP
-masternodeprivkey=$GENKEY
 addnode=139.99.195.25:45454
 addnode=139.99.198.86:45454
 addnode=139.99.194.139:45454
@@ -142,11 +143,28 @@ addnode=66.42.80.73:45454
 addnode=104.207.155.156:45454
 addnode=144.202.54.93:45454
 EOF
+
 rm AQX_Install.sh
-echo AquilaX configuration file has been updated successfully.
-echo You can start your new AquilaX masternode manually by running ./Aquilad -daemon
+./Aquilad -daemon
+GENKEY=./Aquila-cli masternode genkey
+./Aquila-cli -stop
+
+cat > /root/.Aquila/Aquila.conf << EOF
+logtimestamps=1
+maxconnections=256
+masternode=1
+externalip=$VPSIP
+masternodeprivkey=$GENKEY
+EOF
+./Aquilad -daemon
+
+rm AQX_Install.sh
+
+echo AquilaX configuration file created successfully. 
+echo Aquila Server Started Successfully using the command ./Aquilad -daemon command
 echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
-echo If you still have further issues please reach out to support in our Discord channel.
+echo If you still have further issues please reach out to support in our Discord channel. 
+echo Please use the following Private Key when setting up your wallet: ${RED}$GENKEY${NC}
             ;;
         3)
             ./Aquilad -daemon
