@@ -73,7 +73,7 @@ echo Downloading AquilaX install files.
 wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/aqx-linux.tar.gz
 echo Download complete.
 echo Installing AquilaX.
-tar xvf aqx-linux.tar.gz
+tar -xvf aqx-linux.tar.gz
 chmod 775 ./Aquilad
 chmod 775 ./Aquila-cli
 echo AquilaX install complete. 
@@ -141,7 +141,7 @@ VPSIP=$(curl -s4 icanhazip.com)
 wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/aqx-linux.tar.gz
 echo Download complete.
 echo Installing AquilaX.
-tar xvf aqx-linux.tar.gz
+tar -xvf aqx-linux.tar.gz
 chmod 775 ./Aquilad
 chmod 775 ./Aquila-cli
 echo AquilaX install complete. 
